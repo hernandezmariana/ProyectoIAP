@@ -263,6 +263,7 @@ namespace ExplosionesIncrementales.Arranque
         [SerializeField] private VistaImpuesto vistaImpuesto;
         [SerializeField] private VistaFin vistaFin;
 
+        [SerializeField] private VistaTrivia vistaTrivia;
         private void Start()
         {
             var estado = new EstadoJuego();
@@ -274,6 +275,8 @@ namespace ExplosionesIncrementales.Arranque
             var fases = new List<IFase>
             {
                 faseCombate,
+                new PresentadorTrivia(estado, vistaTrivia, new ProveedorTriviaLocal()),
+
                 new FaseAcreditar(estado),
                 // acá va la trivia más adelante
                 new PresentadorTienda(estado, vistaTienda),

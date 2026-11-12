@@ -1,0 +1,19 @@
+{
+  "preguntas": [
+    { "enunciado": "¿Cuánto es 2 + 2?", "opciones": ["3", "4", "5", "6"], "indiceCorrecto": 1, "dificultad": 1 },
+    { "enunciado": "¿De qué color se ve el cielo en un día despejado?", "opciones": ["Azul", "Verde", "Rojo", "Negro"], "indiceCorrecto": 0, "dificultad": 2 },
+    { "enunciado": "¿Cuál es la capital de Argentina?", "opciones": ["Córdoba", "Rosario", "Buenos Aires", "Mendoza"], "indiceCorrecto": 2, "dificultad": 4 },
+    { "enunciado": "¿Cuántos lados tiene un hexágono?", "opciones": ["5", "6", "7", "8"], "indiceCorrecto": 1, "dificultad": 6 },
+    { "enunciado": "¿Qué planeta es el más cercano al Sol?", "opciones": ["Venus", "Marte", "Mercurio", "Tierra"], "indiceCorrecto": 2, "dificultad": 9 },
+    { "enunciado": "¿Quién pintó la Mona Lisa?", "opciones": ["Van Gogh", "Leonardo da Vinci", "Picasso", "Dalí"], "indiceCorrecto": 1, "dificultad": 12 },
+    { "enunciado": "¿En qué año llegó el ser humano a la Luna por primera vez?", "opciones": ["1959", "1969", "1979", "1989"], "indiceCorrecto": 1, "dificultad": 15 },
+    { "enunciado": "¿Cuál es el símbolo químico del oro?", "opciones": ["Ag", "Au", "Or", "Go"], "indiceCorrecto": 1, "dificultad": 19 },
+    { "enunciado": "¿Qué lenguaje se usa para programar scripts en Unity?", "opciones": ["Java", "Python", "C#", "Ruby"], "indiceCorrecto": 2, "dificultad": 23 },
+    { "enunciado": "¿Cuál es el río más caudaloso de Sudamérica?", "opciones": ["Paraná", "Amazonas", "Orinoco", "Magdalena"], "indiceCorrecto": 1, "dificultad": 27 },
+    { "enunciado": "¿Cuántos bits tiene un byte?", "opciones": ["4", "8", "16", "32"], "indiceCorrecto": 1, "dificultad": 31 },
+    { "enunciado": "¿Qué patrón de arquitectura separa Modelo, Vista y Presentador?", "opciones": ["MVP", "Singleton", "Factory", "Observer"], "indiceCorrecto": 0, "dificultad": 35 },
+    { "enunciado": "¿Quién escribió la novela Rayuela?", "opciones": ["Borges", "Cortázar", "Sábato", "Bioy Casares"], "indiceCorrecto": 1, "dificultad": 40 },
+    { "enunciado": "¿Cuál es la complejidad temporal de la búsqueda binaria?", "opciones": ["O(n)", "O(log n)", "O(n²)", "O(1)"], "indiceCorrecto": 1, "dificultad": 44 },
+    { "enunciado": "¿En qué año se firmó la Paz de Westfalia?", "opciones": ["1618", "1648", "1688", "1715"], "indiceCorrecto": 1, "dificultad": 50 }
+  ]
+}

@@ -34,4 +34,16 @@ namespace ExplosionesIncrementales.Vistas
         event Action AlReiniciar;
         void Mostrar(bool victoria, int ronda);
     }
+
+    public interface IVistaTrivia
+    {
+        event Action<bool> AlDecidir;      // true = participa
+        event Action<int> AlResponder;     // índice de la opción elegida
+        event Action AlContinuar;
+
+        void MostrarDecision(int ganancias);
+        void MostrarPregunta(PreguntaTrivia pregunta, int ganancias);
+        void MostrarResultado(ResultadoTrivia resultado, int antes, int despues);
+        void Ocultar();
+    }
 }
