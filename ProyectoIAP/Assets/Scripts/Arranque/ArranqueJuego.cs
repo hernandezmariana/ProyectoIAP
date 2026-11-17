@@ -245,6 +245,7 @@ namespace ExplosionesIncrementales.Arranque
     }
 }*/
 
+/*
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -287,6 +288,116 @@ namespace ExplosionesIncrementales.Arranque
                 () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
 
             new FlujoJuego(estado, fases, fin).Comenzar();
+        }
+    }
+}*/
+
+//ULTIMO
+/*
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using ExplosionesIncrementales.Flujo;
+using ExplosionesIncrementales.Modelo;
+using ExplosionesIncrementales.Presentadores;
+using ExplosionesIncrementales.Vistas;
+
+namespace ExplosionesIncrementales.Arranque
+{
+    public class ArranqueJuego : MonoBehaviour
+    {
+        [SerializeField] private VistaGrilla vistaGrilla;
+        [SerializeField] private FaseCombate faseCombate;
+        [SerializeField] private VistaTrivia vistaTrivia;
+        [SerializeField] private VistaTienda vistaTienda;
+        [SerializeField] private VistaImpuesto vistaImpuesto;
+        [SerializeField] private VistaFin vistaFin;
+        [SerializeField] private VistaMenu vistaMenu;
+
+        private void Start()
+        {
+            var estado = new EstadoJuego();
+            var grilla = new ModeloGrilla(15, 15);
+            IServicioGuardado guardado = new ServicioGuardadoPlayerPrefs();
+            IServicioLocalizacion localizacion = new LocalizacionLocal();
+
+            vistaGrilla.Dibujar(grilla);
+            faseCombate.Configurar(estado, grilla);
+
+            var fases = new List<IFase>
+            {
+                faseCombate,
+                new PresentadorTrivia(estado, vistaTrivia, new ProveedorTriviaLocal()),
+                new FaseAcreditar(estado),
+                new PresentadorTienda(estado, vistaTienda),
+                new PresentadorImpuesto(estado, vistaImpuesto)
+            };
+
+            var fin = new PresentadorFin(estado, vistaFin, guardado,
+                () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+
+            // Al comenzar cada ronda se guarda el progreso
+            var flujo = new FlujoJuego(estado, fases, fin, () => guardado.Guardar(estado.CrearDatos()));
+
+            var menu = new PresentadorMenu(vistaMenu, guardado, localizacion,
+                alNuevaPartida: () => flujo.Comenzar(),
+                alContinuar: datos => { estado.Restaurar(datos); flujo.Comenzar(); });
+
+            menu.Mostrar();
+        }
+    }
+}*/
+
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using ExplosionesIncrementales.Flujo;
+using ExplosionesIncrementales.Modelo;
+using ExplosionesIncrementales.Presentadores;
+using ExplosionesIncrementales.Vistas;
+
+namespace ExplosionesIncrementales.Arranque
+{
+    public class ArranqueJuego : MonoBehaviour
+    {
+        [SerializeField] private VistaGrilla vistaGrilla;
+        [SerializeField] private FaseCombate faseCombate;
+        [SerializeField] private VistaTrivia vistaTrivia;
+        [SerializeField] private VistaTienda vistaTienda;
+        [SerializeField] private VistaImpuesto vistaImpuesto;
+        [SerializeField] private VistaFin vistaFin;
+        [SerializeField] private VistaMenu vistaMenu;
+
+        private void Start()
+        {
+            var estado = new EstadoJuego();
+            estado.Ronda = 20; //??
+            var grilla = new ModeloGrilla(15, 15);
+            IServicioGuardado guardado = new ServicioGuardadoPlayerPrefs();
+            IServicioLocalizacion localizacion = new LocalizacionLocal();
+
+            vistaGrilla.Dibujar(grilla);
+            faseCombate.Configurar(estado, grilla, localizacion);
+
+            var fases = new List<IFase>
+            {
+                faseCombate,
+                new PresentadorTrivia(estado, vistaTrivia, new ProveedorTriviaLocal(), localizacion),
+                new FaseAcreditar(estado),
+                new PresentadorTienda(estado, vistaTienda, localizacion),
+                new PresentadorImpuesto(estado, vistaImpuesto, localizacion)
+            };
+
+            var fin = new PresentadorFin(estado, vistaFin, guardado, localizacion,
+                () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+
+            var flujo = new FlujoJuego(estado, fases, fin, () => guardado.Guardar(estado.CrearDatos()));
+
+            var menu = new PresentadorMenu(vistaMenu, guardado, localizacion,
+                alNuevaPartida: () => flujo.Comenzar(),
+                alContinuar: datos => { estado.Restaurar(datos); flujo.Comenzar(); });
+
+            menu.Mostrar();
         }
     }
 }

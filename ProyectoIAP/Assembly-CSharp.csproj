@@ -64,6 +64,9 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.62f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Modelo\CatalogoEnemigo.cs" />
+    <Compile Include="Assets\Scripts\Modelo\LocalizacionLocal.cs" />
+    <Compile Include="Assets\Scripts\Vistas\VistaMenu.cs" />
     <Compile Include="Assets\Scripts\Vistas\VistaEnemigo.cs" />
     <Compile Include="Assets\Scripts\Flujo\FaseCombate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
@@ -73,6 +76,8 @@
     <Compile Include="Assets\Scripts\Modelo\ModeloEnemigo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Scripts\Presentadores\PresentadorFin.cs" />
+    <Compile Include="Assets\Scripts\Presentadores\PresentadorMenu.cs" />
+    <Compile Include="Assets\Scripts\Modelo\DatosGuardado.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
@@ -80,15 +85,18 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\Modelo\SistemaImpuesto.cs" />
+    <Compile Include="Assets\Scripts\Modelo\ComportamientoEvasivo.cs" />
     <Compile Include="Assets\Scripts\Modelo\ModeloExplosion.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\Vistas\VistaTrivia.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\Scripts\Modelo\IServicioGuardado.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Scripts\Modelo\ComportamientoAvaro.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\Modelo\IComportamiento.cs" />
     <Compile Include="Assets\Scripts\Flujo\IFase.cs" />
@@ -99,6 +107,7 @@
     <Compile Include="Assets\Scripts\Modelo\ComportamientoDeambular.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Scripts\Modelo\IServicioLocalizacion.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
@@ -125,11 +134,13 @@
     <Compile Include="Assets\Scripts\Flujo\FlujoJuego.cs" />
     <Compile Include="Assets\Scripts\Arranque\ArranqueJuego.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Modelo\ServicioGuardadoPlayerPrefs.cs" />
     <Compile Include="Assets\Scripts\Vistas\VistaTienda.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Modelo\Mejora.cs" />
     <Compile Include="Assets\Scripts\Modelo\ResultadoTrivia.cs" />
     <Compile Include="Assets\Scripts\Vistas\VistaJugador.cs" />
+    <Compile Include="Assets\Scripts\Modelo\DefinicionEnemigo.cs" />
     <Compile Include="Assets\Scripts\Modelo\PreguntaTrivia.cs" />
     <Compile Include="Assets\Scripts\Modelo\ProveedorTriviaLocal.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />

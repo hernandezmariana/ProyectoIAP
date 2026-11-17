@@ -12,7 +12,9 @@ namespace ExplosionesIncrementales.Vistas
             Modelo = modelo;
             var render = gameObject.AddComponent<SpriteRenderer>();
             render.sprite = sprite;
-            render.color = new Color(1f, 0.85f, 0.1f); // dorado
+            //render.color = new Color(1f, 0.85f, 0.1f); // dorado
+            render.color = modelo.Valor >= 2 ? new Color(0.2f, 1f, 0.4f) : new Color(1f, 0.85f, 0.1f); // verde neón = valor alto
+
             render.sortingOrder = 1;
             transform.position = new Vector3(modelo.Celda.x, modelo.Celda.y, 0);
             transform.localScale = new Vector3(0.4f, 0.4f, 1f);

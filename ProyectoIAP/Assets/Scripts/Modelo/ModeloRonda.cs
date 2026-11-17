@@ -6,7 +6,7 @@ namespace ExplosionesIncrementales.Modelo
         public float TiempoRestante { get; private set; }
         public bool Terminada => TiempoRestante <= 0f;
 
-        private const float TiempoBase = 10f;
+        private const float TiempoBase = 10f; //para probar sino 30f
 
         public void Comenzar(int numero, float tiempoExtra = 0f)
         {

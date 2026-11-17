@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 namespace ExplosionesIncrementales.Modelo
 {
@@ -21,5 +21,34 @@ namespace ExplosionesIncrementales.Modelo
         }
 
         public void RecibirDano(int dano) => Vida -= dano;
+    }
+}*/
+
+
+using UnityEngine;
+
+namespace ExplosionesIncrementales.Modelo
+{
+    public class ModeloEnemigo
+    {
+        public DefinicionEnemigo Definicion { get; }
+        public Vector2Int Celda { get; set; }
+        public int Vida { get; private set; }
+        public IComportamiento Comportamiento { get; }
+        public bool EstaMuerto => Vida <= 0;
+
+        public float IntervaloMovimiento => Definicion.IntervaloMovimiento;
+        public int MonedasAlMorir => Definicion.Monedas;
+        public int ValorMoneda => Definicion.ValorMoneda;
+
+        public ModeloEnemigo(Vector2Int celda, DefinicionEnemigo definicion)
+        {
+            Celda = celda;
+            Definicion = definicion;
+            Vida = definicion.Vida;
+            Comportamiento = definicion.CrearComportamiento();
+        }
+
+        public void RecibirDano(int dano) { Vida -= dano; }
     }
 }

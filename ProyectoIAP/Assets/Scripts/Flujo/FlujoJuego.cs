@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using ExplosionesIncrementales.Modelo;
 
 namespace ExplosionesIncrementales.Flujo
@@ -16,6 +16,98 @@ namespace ExplosionesIncrementales.Flujo
         }
 
         public void Comenzar() { _indice = 0; SiguienteFase(); }
+
+        private void SiguienteFase()
+        {
+            if (_estado.Resultado != ResultadoPartida.EnCurso)
+            {
+                _faseFin.Iniciar(() => { });
+                return;
+            }
+            if (_indice >= _fasesDeRonda.Count)
+            {
+                _estado.Ronda++;
+                Comenzar();
+                return;
+            }
+            _fasesDeRonda[_indice++].Iniciar(SiguienteFase);
+        }
+    }
+}*/
+
+/*
+
+using System;
+using System.Collections.Generic;
+using ExplosionesIncrementales.Modelo;
+
+namespace ExplosionesIncrementales.Flujo
+{
+    public class FlujoJuego
+    {
+        private readonly EstadoJuego _estado;
+        private readonly List<IFase> _fasesDeRonda;
+        private readonly IFase _faseFin;
+        private readonly Action _alIniciarRonda;
+        private int _indice;
+
+        public FlujoJuego(EstadoJuego estado, List<IFase> fasesDeRonda, IFase faseFin, Action alIniciarRonda)
+        {
+            _estado = estado; _fasesDeRonda = fasesDeRonda;
+            _faseFin = faseFin; _alIniciarRonda = alIniciarRonda;
+        }
+
+        public void Comenzar()
+        {
+            _indice = 0;
+            if (_alIniciarRonda != null) _alIniciarRonda();   // punto de recuperación
+            SiguienteFase();
+        }
+
+        private void SiguienteFase()
+        {
+            if (_estado.Resultado != ResultadoPartida.EnCurso)
+            {
+                _faseFin.Iniciar(() => { });
+                return;
+            }
+            if (_indice >= _fasesDeRonda.Count)
+            {
+                _estado.Ronda++;
+                Comenzar();
+                return;
+            }
+            _fasesDeRonda[_indice++].Iniciar(SiguienteFase);
+        }
+    }
+}*/
+
+using System;
+using System.Collections.Generic;
+using ExplosionesIncrementales.Modelo;
+
+namespace ExplosionesIncrementales.Flujo
+{
+    public class FlujoJuego
+    {
+        private readonly EstadoJuego _estado;
+        private readonly List<IFase> _fasesDeRonda;
+        private readonly IFase _faseFin;
+        private readonly Action _alIniciarRonda;
+        private int _indice;
+
+        public FlujoJuego(EstadoJuego estado, List<IFase> fasesDeRonda, IFase faseFin, Action alIniciarRonda)
+        {
+            _estado = estado; _fasesDeRonda = fasesDeRonda;
+            _faseFin = faseFin; _alIniciarRonda = alIniciarRonda;
+        }
+
+        public void Comenzar()
+        {
+            _indice = 0;
+            if (_alIniciarRonda != null) _alIniciarRonda();   // punto de recuperación
+            SiguienteFase();
+        }
 
         private void SiguienteFase()
         {
