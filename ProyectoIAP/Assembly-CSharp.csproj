@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\Vistas\ControlTactil.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Scripts\Vistas\CamaraAdaptable.cs" />
     <Compile Include="Assets\Scripts\Modelo\ComportamientoAvaro.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\Modelo\IComportamiento.cs" />
