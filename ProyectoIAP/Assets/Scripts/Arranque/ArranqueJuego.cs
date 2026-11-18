@@ -347,7 +347,9 @@ namespace ExplosionesIncrementales.Arranque
         }
     }
 }*/
-
+ 
+ //ULTIMO ULTIMO 
+ /*
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -375,6 +377,64 @@ namespace ExplosionesIncrementales.Arranque
             var grilla = new ModeloGrilla(15, 15);
             IServicioGuardado guardado = new ServicioGuardadoPlayerPrefs();
             IServicioLocalizacion localizacion = new LocalizacionLocal();
+
+            vistaGrilla.Dibujar(grilla);
+            faseCombate.Configurar(estado, grilla, localizacion);
+
+            var fases = new List<IFase>
+            {
+                faseCombate,
+                new PresentadorTrivia(estado, vistaTrivia, new ProveedorTriviaLocal(), localizacion),
+                new FaseAcreditar(estado),
+                new PresentadorTienda(estado, vistaTienda, localizacion),
+                new PresentadorImpuesto(estado, vistaImpuesto, localizacion)
+            };
+
+            var fin = new PresentadorFin(estado, vistaFin, guardado, localizacion,
+                () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+
+            var flujo = new FlujoJuego(estado, fases, fin, () => guardado.Guardar(estado.CrearDatos()));
+
+            var menu = new PresentadorMenu(vistaMenu, guardado, localizacion,
+                alNuevaPartida: () => flujo.Comenzar(),
+                alContinuar: datos => { estado.Restaurar(datos); flujo.Comenzar(); });
+
+            menu.Mostrar();
+        }
+    }
+}*/
+
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using ExplosionesIncrementales.Flujo;
+using ExplosionesIncrementales.Modelo;
+using ExplosionesIncrementales.Presentadores;
+using ExplosionesIncrementales.Vistas;
+
+namespace ExplosionesIncrementales.Arranque
+{
+    public class ArranqueJuego : MonoBehaviour
+    {
+        [SerializeField] private VistaGrilla vistaGrilla;
+        [SerializeField] private VistaJugador vistaJugador;
+        [SerializeField] private ControlTactil controlTactil;
+        [SerializeField] private FaseCombate faseCombate;
+        [SerializeField] private VistaTrivia vistaTrivia;
+        [SerializeField] private VistaTienda vistaTienda;
+        [SerializeField] private VistaImpuesto vistaImpuesto;
+        [SerializeField] private VistaFin vistaFin;
+        [SerializeField] private VistaMenu vistaMenu;
+
+        private void Start()
+        {
+            var estado = new EstadoJuego();
+            var grilla = new ModeloGrilla(15, 15);
+            IServicioGuardado guardado = new ServicioGuardadoPlayerPrefs();
+            IServicioLocalizacion localizacion = new LocalizacionLocal();
+
+            vistaJugador.AgregarEntrada(new EntradaTeclado());
+            vistaJugador.AgregarEntrada(controlTactil);
 
             vistaGrilla.Dibujar(grilla);
             faseCombate.Configurar(estado, grilla, localizacion);

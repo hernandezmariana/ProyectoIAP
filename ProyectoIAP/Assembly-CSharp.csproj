@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Vistas\VistaMenu.cs" />
     <Compile Include="Assets\Scripts\Vistas\VistaEnemigo.cs" />
     <Compile Include="Assets\Scripts\Flujo\FaseCombate.cs" />
+    <Compile Include="Assets\Scripts\Vistas\IEntradaDireccion.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Vistas\VistaGrilla.cs" />
     <Compile Include="Assets\Scripts\Modelo\ModeloGrilla.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\Modelo\IServicioGuardado.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Scripts\Vistas\ControlTactil.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Scripts\Modelo\ComportamientoAvaro.cs" />
@@ -127,6 +129,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\Vistas\InterfacesVistas.cs" />
+    <Compile Include="Assets\Scripts\Vistas\BotonDireccion.cs" />
     <Compile Include="Assets\Scripts\Vistas\VistaMoneda.cs" />
     <Compile Include="Assets\Scripts\Vistas\VistaFin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
@@ -134,6 +137,7 @@
     <Compile Include="Assets\Scripts\Flujo\FlujoJuego.cs" />
     <Compile Include="Assets\Scripts\Arranque\ArranqueJuego.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Vistas\EntradaTeclado.cs" />
     <Compile Include="Assets\Scripts\Modelo\ServicioGuardadoPlayerPrefs.cs" />
     <Compile Include="Assets\Scripts\Vistas\VistaTienda.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
