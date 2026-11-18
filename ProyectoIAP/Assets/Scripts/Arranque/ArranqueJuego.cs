@@ -371,7 +371,7 @@ namespace ExplosionesIncrementales.Arranque
         private void Start()
         {
             var estado = new EstadoJuego();
-            estado.Ronda = 20; //??
+           // estado.Ronda = 20; //??
             var grilla = new ModeloGrilla(15, 15);
             IServicioGuardado guardado = new ServicioGuardadoPlayerPrefs();
             IServicioLocalizacion localizacion = new LocalizacionLocal();

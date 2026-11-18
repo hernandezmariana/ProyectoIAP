@@ -601,7 +601,8 @@ namespace ExplosionesIncrementales.Flujo
             {
                 if (casillas.Contains(vista.Modelo.Celda))
                 {
-                    vista.Modelo.RecibirDano(_explosion.Dano);
+                   // vista.Modelo.RecibirDano(_explosion.Dano);
+                    vista.Modelo.RecibirDano(_explosion.CalcularDano());
                     if (vista.Modelo.EstaMuerto) muertos.Add(vista);
                 }
             }
@@ -679,7 +680,11 @@ namespace ExplosionesIncrementales.Flujo
         {
             foreach (var celda in CeldasLibresCerca(enemigo.Celda, enemigo.MonedasAlMorir))
             {
-                var modelo = new ModeloMoneda(celda, enemigo.ValorMoneda);
+                //var modelo = new ModeloMoneda(celda, enemigo.ValorMoneda);
+               int valor = enemigo.ValorMoneda;
+                if (UnityEngine.Random.value < _estado.ProbabilidadMonedaAlta) valor *= 2;
+                var modelo = new ModeloMoneda(celda, valor);
+               
                 var objeto = new GameObject("Moneda");
                 var vista = objeto.AddComponent<VistaMoneda>();
                 vista.Iniciar(modelo, spriteCirculo);

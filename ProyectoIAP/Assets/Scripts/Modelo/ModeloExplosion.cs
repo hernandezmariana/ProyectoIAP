@@ -9,6 +9,9 @@ namespace ExplosionesIncrementales.Modelo
         public float Enfriamiento { get; set; } = 1.5f; // segundos entre explosiones
         public int Dano { get; set; } = 1;
 
+        public float ProbabilidadCritico { get; set; }
+
+
         // Devuelve todas las casillas que toca la cruz, recortadas a los bordes
         public List<Vector2Int> CalcularCasillas(Vector2Int centro, ModeloGrilla grilla)
         {
@@ -35,6 +38,14 @@ namespace ExplosionesIncrementales.Modelo
             Radio = 3 + estado.Nivel(TipoMejora.Radio);
             Enfriamiento = Mathf.Max(0.3f, 1.5f - 0.1f * estado.Nivel(TipoMejora.Velocidad));
             Dano = 1 + estado.Nivel(TipoMejora.Dano);
+            ProbabilidadCritico = estado.ProbabilidadCritico;
+
+        }
+
+          // Cada impacto tira su propia probabilidad de crítico (doble daño)
+        public int CalcularDano()
+        {
+            return Random.value < ProbabilidadCritico ? Dano * 2 : Dano;
         }
     }
 }

@@ -89,7 +89,7 @@ namespace ExplosionesIncrementales.Modelo
     public class EstadoJuego
     {
         public int Ronda { get; set; } = 1;
-        public int Dinero { get; private set; } =500; //para probar
+        public int Dinero { get; private set; } =5000; //para probar
         public int GananciasRonda { get; set; }
         public ResultadoPartida Resultado { get; set; } = ResultadoPartida.EnCurso;
         public SistemaImpuestos Impuestos { get; } = new SistemaImpuestos();
@@ -110,6 +110,16 @@ namespace ExplosionesIncrementales.Modelo
 
         public int Nivel(TipoMejora tipo) { return _mejoras[tipo].Nivel; }
         public float TiempoExtra { get { return 3f * Nivel(TipoMejora.Tiempo); } }
+  
+        public float ProbabilidadCritico
+        {
+            get { return Math.Min(0.5f, 0.05f * Nivel(TipoMejora.Suerte)); }
+        }
+
+        public float ProbabilidadMonedaAlta
+        {
+            get { return Math.Min(0.6f, 0.08f * Nivel(TipoMejora.Suerte)); }
+        }
 
         public void AcreditarGanancias()
         {
