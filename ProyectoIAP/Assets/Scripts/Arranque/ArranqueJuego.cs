@@ -404,6 +404,9 @@ namespace ExplosionesIncrementales.Arranque
     }
 }*/
 
+
+//ultimo sin la trivia de IA 
+/*
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -443,6 +446,80 @@ namespace ExplosionesIncrementales.Arranque
             {
                 faseCombate,
                 new PresentadorTrivia(estado, vistaTrivia, new ProveedorTriviaLocal(), localizacion),
+                new FaseAcreditar(estado),
+                new PresentadorTienda(estado, vistaTienda, localizacion),
+                new PresentadorImpuesto(estado, vistaImpuesto, localizacion)
+            };
+
+            var fin = new PresentadorFin(estado, vistaFin, guardado, localizacion,
+                () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+
+            var flujo = new FlujoJuego(estado, fases, fin, () => guardado.Guardar(estado.CrearDatos()));
+
+            var menu = new PresentadorMenu(vistaMenu, guardado, localizacion,
+                alNuevaPartida: () => flujo.Comenzar(),
+                alContinuar: datos => { estado.Restaurar(datos); flujo.Comenzar(); });
+
+            menu.Mostrar();
+        }
+    }
+}*/
+
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using ExplosionesIncrementales.Flujo;
+using ExplosionesIncrementales.Modelo;
+using ExplosionesIncrementales.Presentadores;
+using ExplosionesIncrementales.Servicios;
+using ExplosionesIncrementales.Vistas;
+
+namespace ExplosionesIncrementales.Arranque
+{
+    public class ArranqueJuego : MonoBehaviour
+    {
+        [SerializeField] private VistaGrilla vistaGrilla;
+        [SerializeField] private VistaJugador vistaJugador;
+        [SerializeField] private ControlTactil controlTactil;
+        [SerializeField] private FaseCombate faseCombate;
+        [SerializeField] private VistaTrivia vistaTrivia;
+        [SerializeField] private VistaTienda vistaTienda;
+        [SerializeField] private VistaImpuesto vistaImpuesto;
+        [SerializeField] private VistaFin vistaFin;
+        [SerializeField] private VistaMenu vistaMenu;
+
+        [Header("Servicios externos")]
+        [Tooltip("URL del Worker. Si está vacía, la trivia usa solo el banco local.")]
+        [SerializeField] private string urlProxyTrivia = "https://trivia-proxy.mri1vv.workers.dev";
+
+        private void Start()
+        {
+            var estado = new EstadoJuego(); // función de EstadoJuego.cs
+            var grilla = new ModeloGrilla(15, 15); // función de ModeloGrilla.cs 
+            IServicioGuardado guardado = new ServicioGuardadoPlayerPrefs(); //solo interfaz 
+
+
+            //idioma portugues desde el inicio con IA
+            var http = gameObject.AddComponent<ClienteHttp>();
+            IServicioLocalizacion localizacion = new LocalizacionConApi(new LocalizacionLocal(), http, new[] { "pt" });
+
+            IProveedorTrivia trivia = new ProveedorTriviaLocal();
+           Debug.Log("[Trivia] URL configurada: '" + urlProxyTrivia + "'");
+            
+            if (!string.IsNullOrEmpty(urlProxyTrivia))
+                trivia = new ProveedorTriviaConRespaldo(  new ProveedorTriviaIA(http, urlProxyTrivia, localizacion), trivia);
+
+            //para flechas
+            vistaJugador.AgregarEntrada(new EntradaTeclado());
+            vistaJugador.AgregarEntrada(controlTactil);
+
+            vistaGrilla.Dibujar(grilla);
+            faseCombate.Configurar(estado, grilla, localizacion);
+
+            var fases = new List<IFase>
+            {
+                faseCombate,
+                new PresentadorTrivia(estado, vistaTrivia, trivia, localizacion),
                 new FaseAcreditar(estado),
                 new PresentadorTienda(estado, vistaTienda, localizacion),
                 new PresentadorImpuesto(estado, vistaImpuesto, localizacion)

@@ -48,6 +48,10 @@ namespace ExplosionesIncrementales.Vistas
         void MostrarPregunta(string texto, string[] opciones);
         void MostrarResultado(string texto, string textoContinuar);
         void Ocultar();
+
+        //para la trivia IA
+        public void MostrarCargando(string texto);
+    
     }
 
     public interface IVistaMenu

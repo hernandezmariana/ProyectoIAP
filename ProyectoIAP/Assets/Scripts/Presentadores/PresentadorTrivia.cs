@@ -108,10 +108,25 @@ namespace ExplosionesIncrementales.Presentadores
                 _loc.Texto("trivia.conservar"));
         }
 
+        /*private void Decidir(bool participa)
+        {
+            if (!participa) { Finalizar(ResultadoTrivia.NoRespondio); return; }
+
+            _proveedor.ObtenerPregunta(_estado.Ronda, pregunta =>
+            {
+                _pregunta = pregunta;
+                _vista.MostrarPregunta(
+                    _loc.Texto("trivia.pregunta", _estado.GananciasRonda, pregunta.enunciado),
+                    pregunta.opciones);
+            });
+        }*/
+
+        //PARA LA PARTE DE TRIVIA IA- solo esto
         private void Decidir(bool participa)
         {
             if (!participa) { Finalizar(ResultadoTrivia.NoRespondio); return; }
 
+            _vista.MostrarCargando(_loc.Texto("trivia.cargando"));
             _proveedor.ObtenerPregunta(_estado.Ronda, pregunta =>
             {
                 _pregunta = pregunta;

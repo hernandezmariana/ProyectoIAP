@@ -556,10 +556,12 @@ namespace ExplosionesIncrementales.Flujo
             if (!_activa) return;
 
             _ronda.Avanzar(Time.deltaTime);
-            vistaTemporizador.Mostrar(_loc.Texto("hud.ronda", _ronda.Numero,
-                Mathf.CeilToInt(Mathf.Max(0, _ronda.TiempoRestante)), _dineroRonda));
+            vistaTemporizador.Mostrar(_loc.Texto("hud.ronda", _ronda.Numero,  Mathf.CeilToInt(Mathf.Max(0, _ronda.TiempoRestante)), _dineroRonda));
 
-            if (_ronda.Terminada) { Terminar(); return; }
+            if (_ronda.Terminada) { 
+                Terminar();
+                 return; 
+                }
 
             ActualizarExplosion();
             MoverEnemigos();

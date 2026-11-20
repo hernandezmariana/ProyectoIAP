@@ -98,8 +98,10 @@ namespace ExplosionesIncrementales.Flujo
 
         public FlujoJuego(EstadoJuego estado, List<IFase> fasesDeRonda, IFase faseFin, Action alIniciarRonda)
         {
-            _estado = estado; _fasesDeRonda = fasesDeRonda;
-            _faseFin = faseFin; _alIniciarRonda = alIniciarRonda;
+            _estado = estado; 
+            _fasesDeRonda = fasesDeRonda;
+            _faseFin = faseFin; 
+            _alIniciarRonda = alIniciarRonda;
         }
 
         public void Comenzar()

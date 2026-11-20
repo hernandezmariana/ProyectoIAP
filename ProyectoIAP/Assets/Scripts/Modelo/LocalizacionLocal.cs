@@ -101,6 +101,7 @@ namespace ExplosionesIncrementales.Modelo
                 { "fin.victoria", "¡VICTORIA!\nPagaste el impuesto de la ronda {0}" },
                 { "fin.gameover", "GAME OVER\nBancarrota en la ronda {0}" },
                 { "fin.reiniciar", "Jugar de nuevo" },
+                { "trivia.cargando", "Buscando una pregunta..." },
                 { "hud.ronda", "RONDA {0}   T: {1}   ${2}" } } },
 
             { "en", new Dictionary<string, string> {
@@ -130,6 +131,7 @@ namespace ExplosionesIncrementales.Modelo
                 { "fin.victoria", "VICTORY!\nYou paid the tax of round {0}" },
                 { "fin.gameover", "GAME OVER\nBankrupt in round {0}" },
                 { "fin.reiniciar", "Play again" },
+                { "trivia.cargando", "Looking for a question..." },
                 { "hud.ronda", "ROUND {0}   T: {1}   ${2}" } } }
         };
 
@@ -164,6 +166,14 @@ namespace ExplosionesIncrementales.Modelo
             PlayerPrefs.SetString(ClaveIdioma, codigo);
             PlayerPrefs.Save();
             if (AlCambiarIdioma != null) AlCambiarIdioma();
+        }
+
+        // Lo usa la localización con API para saber qué textos traducir
+        public IEnumerable<KeyValuePair<string, string>> TextosDe(string codigo)
+        {
+            Dictionary<string, string> tabla;
+            if (_textos.TryGetValue(codigo, out tabla)) return tabla;
+            return new Dictionary<string, string>();
         }
     }
 }

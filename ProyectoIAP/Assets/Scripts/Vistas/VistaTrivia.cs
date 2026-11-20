@@ -190,5 +190,11 @@ namespace ExplosionesIncrementales.Vistas
             grupoPregunta.SetActive(grupo == grupoPregunta);
             grupoResultado.SetActive(grupo == grupoResultado);
         }
+
+        public void MostrarCargando(string texto)
+        {
+            textoPrincipal.text = texto;
+            ActivarSoloGrupo(null);   // oculta los tres grupos de botones
+        }
     }
 }

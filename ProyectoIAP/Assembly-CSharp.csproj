@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Vistas\VistaMenu.cs" />
     <Compile Include="Assets\Scripts\Vistas\VistaEnemigo.cs" />
     <Compile Include="Assets\Scripts\Flujo\FaseCombate.cs" />
+    <Compile Include="Assets\Scripts\Servicios\ProveedorTriviaIA.cs" />
     <Compile Include="Assets\Scripts\Vistas\IEntradaDireccion.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Vistas\VistaGrilla.cs" />
@@ -94,9 +95,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\Modelo\IServicioGuardado.cs" />
+    <Compile Include="Assets\Scripts\Servicios\ClienteHttp.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\Vistas\ControlTactil.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
+    <Compile Include="Assets\Scripts\Servicios\ProveedorTriviaConRespaldo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Scripts\Vistas\CamaraAdaptable.cs" />
     <Compile Include="Assets\Scripts\Modelo\ComportamientoAvaro.cs" />
@@ -144,6 +147,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Modelo\Mejora.cs" />
     <Compile Include="Assets\Scripts\Modelo\ResultadoTrivia.cs" />
+    <Compile Include="Assets\Scripts\Servicios\LocalizacionConApi.cs" />
     <Compile Include="Assets\Scripts\Vistas\VistaJugador.cs" />
     <Compile Include="Assets\Scripts\Modelo\DefinicionEnemigo.cs" />
     <Compile Include="Assets\Scripts\Modelo\PreguntaTrivia.cs" />
